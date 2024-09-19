@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #000;
+    background-image: url('background.jpeg');
+    background-size: cover;
+    background-position: center;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+a:hover {
+    color: orange;
+}
+
+header {
+    position: relative;
+    padding: 0 2rem;
+}
+
+.navbar {
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 2rem;
+}
+
+.navbar .toggle-btn {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.navbar .toggle-btn .line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+}
+
+.action-btn {
+    background-color: orange;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    color: #fff;
+}
+
+.action-btn:active {
+    transform: scale(0.95);
+}
+
+/*DROPDOWN MENU*/
+
+.dropdown_menu{
+    display:none;
+    position:absolute;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width:300px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    border-radius:10px;
+    overflow: hidden;
+    transition-height: 0.2s cubic-bezier(0.175,0.885,0.132,1.275);
+}
+
+.dropdown_menu.open{
+    height: 240px;
+}
+
+.dropdown_menu li{
+    padding:0.7rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.dropdown_menu .action-btn{
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+.dropdown_menu{
+    display:block;
+
+}
+
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 992px) {
+    .navbar .links {
+        display: none; /* Hide menu items by default on small screens */
+        flex-direction: column;
+        width: 100%;
+        background-color: #000;
+        position: absolute;
+        top: 60px; /* Position below the navbar */
+        left: 0;
+        padding: 1rem;
+        gap: 1rem;
+        z-index: 1000; /* Ensure it appears above other content */
+    }
+
+    .navbar .links.active {
+        display: flex; /* Show menu items when toggled */
+    }
+
+    .navbar .toggle-btn {
+        display: flex; /* Show hamburger menu icon */
+    }
+}
